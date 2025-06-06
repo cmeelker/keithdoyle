@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className="bg-white-smoke px-10 w-screen h-screen">
         <NavBar />
         {children}
-        <p className="text-cursed-grey absolute bottom-2 right-10 font-[Univers]">
+        <p className="text-cursed-grey absolute bottom-2 right-10 font-[Univers] text-sm">
           © Keith Doyle 2025
         </p>
         <Analytics />

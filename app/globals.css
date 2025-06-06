@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  --font-size: 18px;
+}
+
 @font-face {
   font-family: "Garamond";
   src: url("/fonts/AGaramondPro-Bold.woff2") format("woff2"),
@@ -42,7 +46,9 @@
 
 body {
   font-family: "Garamond";
+  font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 @theme {
