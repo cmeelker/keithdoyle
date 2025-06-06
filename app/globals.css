@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Garamond";
+  src: url("/fonts/AGaramondPro-Bold.woff2") format("woff2"),
+    url("/fonts/AGaramondPro-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: bold;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "Garamond";
+  src: url("/fonts/AGaramondPro-Regular.woff2") format("woff2"),
+    url("/fonts/AGaramondPro-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "Garamond";
+  src: url("/fonts/AGaramondPro-Italic.woff2") format("woff2"),
+    url("/fonts/AGaramondPro-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/fonts/AGaramondPro-BoldItalic.woff2") format("woff2"),
+    url("/fonts/AGaramondPro-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Garamond";
+  -webkit-font-smoothing: antialiased;
 }
