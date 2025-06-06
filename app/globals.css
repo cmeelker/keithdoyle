@@ -32,7 +32,20 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Univers";
+  src: url("/fonts/UniversLTStd.woff2") format("woff2"),
+    url("/fonts/UniversLTStd.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   font-family: "Garamond";
   -webkit-font-smoothing: antialiased;
+}
+
+@theme {
+  --color-cursed-grey: #666666;
+  --color-white-smoke: #F5F5F5;
 }
