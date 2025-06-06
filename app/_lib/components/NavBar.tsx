@@ -3,7 +3,7 @@ import FontSizeSlider from "./FontSizeSlider";
 
 export default function NavBar() {
   return (
-    <div className="flex w-full justify-between pt-7 flex-wrap-reverse">
+    <div className="flex w-full justify-between pt-5 md:pt-7 flex-wrap-reverse">
       <h1>
         <Link href="/about">Keith Doyle</Link>
       </h1>

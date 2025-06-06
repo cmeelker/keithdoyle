@@ -48,7 +48,6 @@ body {
   font-family: "Garamond";
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 @theme {
