@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./_lib/components/NavBar";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Keith Doyle",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <p className="text-cursed-grey absolute bottom-2 right-10 font-[Univers]">
           © Keith Doyle 2025
         </p>
+        <Analytics />
       </body>
     </html>
   );
