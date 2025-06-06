@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-white-smoke px-4.5 md:px-10 w-full h-full break-all sm:break-normal">
+      <body className="bg-white-smoke px-4.5 md:px-10 w-full h-full break-word sm:break-normal">
         <NavBar />
         {children}
         <p className="text-cursed-grey absolute bottom-2 right-10 font-[Univers] text-sm">
