@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-white-smoke px-4.5 md:px-10 w-full h-full break-word sm:break-normal">
+    <html lang="en" className="h-screen">
+      <body className="bg-white-smoke break-word flex h-full w-full flex-col px-4.5 sm:break-normal md:px-10">
         <NavBar />
         {children}
-        <p className="text-cursed-grey absolute bottom-2 right-10 font-[Univers] text-sm">
+        <p className="text-cursed-grey absolute right-10 bottom-2 font-[Univers] text-sm">
           © Keith Doyle 2025
         </p>
         <Analytics />
