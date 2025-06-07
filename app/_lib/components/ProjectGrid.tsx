@@ -22,6 +22,9 @@ export default async function ProjectGrid() {
         <div className="hidden md:block">(collaborative)</div>
         <div className="md:hidden">(c)</div>
       </div>
+      <div className="col-start-2 mt-1 ml-6 border-r-2 border-b-2 border-black"></div>
+      <div className="col-start-3 mr-6 border-b-2 border-black"></div>
+      <div className="col-start-2 row-start-3 mb-1 border-r-2 border-black"></div>
     </div>
   );
 }
