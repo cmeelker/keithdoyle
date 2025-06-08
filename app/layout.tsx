@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className="bg-white-smoke break-word flex h-full w-full flex-col px-4.5 sm:break-normal md:px-10">
         <NavBar />
         {children}
-        <p className="text-cursed-grey absolute right-10 bottom-2 font-[Univers] text-sm">
+        <p className="text-cursed-grey absolute right-10 bottom-1 font-[Univers] text-sm md:bottom-2">
           © Keith Doyle 2025
         </p>
         <Analytics />

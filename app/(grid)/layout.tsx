@@ -7,7 +7,9 @@ export default function Layout({
 }>) {
   return (
     <div className="h-full">
-      <ProjectGrid />
+      <div className="h-full pb-5">
+        <ProjectGrid />
+      </div>
       {children}
     </div>
   );
