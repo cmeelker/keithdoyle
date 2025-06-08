@@ -38,7 +38,7 @@ export default async function ProjectGrid() {
         <div className="col-start-2 row-start-3 mb-1 border-r-2 border-black"></div>
       </div>
       <div className="absolute inset-0 flex h-full">
-        <div className="relative m-auto grid h-[95%] w-[95%] grid-cols-200 grid-rows-200">
+        <div className="relative m-auto grid h-[90%] w-[90%] grid-cols-200 grid-rows-200">
           {projects.map((project, index) => {
             const isRight = isRightHalf(project.x, project.y);
             const isBottom = isBottomHalf(project.x, project.y);
