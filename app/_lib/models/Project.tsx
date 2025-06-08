@@ -1,7 +1,5 @@
-
 import { Document } from "@contentful/rich-text-types";
 import { ContentfulImage, mapImage } from "./Image";
-
 
 export interface Project {
   id: number;
@@ -10,6 +8,8 @@ export interface Project {
   year: string;
   description: Document;
   media: ProjectMedia;
+  x: number;
+  y: number;
 }
 
 export interface ProjectMedia {
@@ -26,5 +26,7 @@ export function mapProject(project: any): Project {
     media: {
       images: project.fields.images?.map((image: any) => mapImage(image)) || [],
     },
+    x: project.fields.x,
+    y: project.fields.y,
   };
 }

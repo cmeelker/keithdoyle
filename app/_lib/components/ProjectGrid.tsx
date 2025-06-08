@@ -3,10 +3,20 @@ import { getProjects } from "../services/projectService";
 
 export default async function ProjectGrid() {
   const projects = await getProjects();
+  // TODO: Sort on year? Or something else?
+
+  // Range for x and y coordinates are -100 to 100
+  function isBottomHalf(x: number, y: number) {
+    return y > 0;
+  }
+
+  function isRightHalf(x: number, y: number) {
+    return x > 0;
+  }
 
   return (
     <div className="relative h-full lg:-mt-[calc(var(--font-size)*1.5)] lg:h-[calc(100%+(var(--font-size)*1.5))]">
-      <div className="grid h-full grid-cols-[max-content_1fr_1fr_max-content] grid-rows-[max-content_1fr_1fr_max-content] bg-green-100">
+      <div className="grid h-full grid-cols-[max-content_1fr_1fr_max-content] grid-rows-[max-content_1fr_1fr_max-content]">
         <div className="col-span-4 col-start-1 mx-auto">
           <div className="hidden md:block">(self)</div>
           <div className="md:hidden">(s)</div>
@@ -28,7 +38,30 @@ export default async function ProjectGrid() {
         <div className="col-start-2 row-start-3 mb-1 border-r-2 border-black"></div>
       </div>
       <div className="absolute inset-0 flex h-full">
-        <div className="m-auto h-[97%] w-[97%] border border-red-500"></div>
+        <div className="relative m-auto grid h-[95%] w-[95%] grid-cols-200 grid-rows-200">
+          {projects.map((project, index) => {
+            const isRight = isRightHalf(project.x, project.y);
+            const isBottom = isBottomHalf(project.x, project.y);
+
+            return (
+              <h2
+                key={project.id}
+                style={{
+                  gridColumnStart: project.x + 100,
+                  gridRowStart: project.y + 100,
+                }}
+                className={`w-fit whitespace-nowrap ${isBottom && "-translate-y-[var(--font-size)]"} ${isRight && "-translate-x-full"}`}
+              >
+                <Link href={`/projects/${project.slug}`}>
+                  <span className="hidden md:block">
+                    {index + 1}. {project.title}
+                  </span>
+                  <div className="md:hidden">{index + 1}.</div>
+                </Link>
+              </h2>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
