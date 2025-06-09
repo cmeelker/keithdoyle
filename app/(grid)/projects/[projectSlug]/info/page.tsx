@@ -1,12 +1,10 @@
 import Richtext from "@/app/_lib/components/Richtext";
 import { getProject } from "@/app/_lib/services/projectService";
-
-import { redirect } from "next/navigation";
-import { ProjectPageProps } from "./layout";
+import { ProjectPageProps } from "../layout";
 
 export const dynamic = "force-dynamic";
 
-export default async function ProjectPage({
+export default async function ProjectInfoPage({
   params,
 }: {
   params: Promise<ProjectPageProps>;
@@ -14,6 +12,5 @@ export default async function ProjectPage({
   const { projectSlug } = await params;
   const project = await getProject(projectSlug);
 
-  // TODO
-  return <div>Gallery</div>;
+  return <Richtext document={project.description} />;
 }
