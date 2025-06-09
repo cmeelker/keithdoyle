@@ -1,3 +1,4 @@
+import ThreeDBorder from "@/app/_lib/components/3DBorder";
 import { getProject } from "@/app/_lib/services/projectService";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -34,10 +35,8 @@ export default async function ProjectPage({
   });
 
   return (
-    <div className="w-full h-full grid place-items-center absolute top-0 left-0 pointer-events-none">
-      <section className="w-2/3 h-2/3 border-4 border-black pointer-events-auto">
-        {project.title}
-      </section>
+    <div className="pointer-events-none absolute top-0 left-0 grid h-full w-full place-items-center">
+      <ThreeDBorder className="h-2/3 w-2/3">{project.title}</ThreeDBorder>
     </div>
   );
 }
