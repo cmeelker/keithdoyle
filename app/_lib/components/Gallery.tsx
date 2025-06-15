@@ -23,10 +23,7 @@ export default function Gallery({ images }: { images: ContentfulImage[] }) {
   }
 
   return (
-    <div
-      className="flex h-full flex-col items-center gap-[24px]"
-      style={{ gap: flexGap }}
-    >
+    <div className="flex h-full flex-col items-center" style={{ gap: flexGap }}>
       <div className="relative m-auto h-full w-full md:w-[90%]">
         <Image
           className="cursor-pointer object-contain"
@@ -36,7 +33,7 @@ export default function Gallery({ images }: { images: ContentfulImage[] }) {
           onClick={() => goToNextImage()}
         />
       </div>
-      <div>
+      <div className="-mb-[calc(0.5*var(--font-size))]">
         {currentImageIndex + 1}/{images.length}
       </div>
     </div>
