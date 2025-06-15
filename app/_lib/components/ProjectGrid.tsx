@@ -17,16 +17,16 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
     return x > 0;
   }
 
-  const [showFullTitle, setShowFullTitle] = useState(false);
+  const [showFullTexts, setShowFullTexts] = useState(false);
 
   const fontSize = useCssVar("--font-size");
   const { width: windowWidth } = useWindowDimensions();
 
   useEffect(() => {
-    if (windowWidth < 1024 && fontSize > "36px") {
-      setShowFullTitle(false);
+    if (windowWidth < 1024 && fontSize > "30px") {
+      setShowFullTexts(false);
     } else {
-      setShowFullTitle(true);
+      setShowFullTexts(true);
     }
   }, [fontSize, windowWidth]);
 
@@ -34,20 +34,16 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
     <div className="relative h-full lg:-mt-[calc(var(--font-size)*1.5)] lg:h-[calc(100%+(var(--font-size)*1.5))]">
       <div className="grid h-full grid-cols-[max-content_1fr_1fr_max-content] grid-rows-[max-content_1fr_1fr_max-content]">
         <div className="col-span-4 col-start-1 mx-auto">
-          <div className="hidden md:block">(self)</div>
-          <div className="md:hidden">(s)</div>
+          {showFullTexts ? <>(self)</> : <>(s)</>}
         </div>
         <div className="col-start-1 row-span-2 row-start-2 my-auto text-left">
-          <div className="hidden md:block">(hobbies)</div>
-          <div className="md:hidden">(h)</div>
+          {showFullTexts ? <>(hobbies)</> : <>(h)</>}
         </div>
         <div className="col-start-4 row-span-2 row-start-2 my-auto text-right">
-          <div className="hidden md:block">(research)</div>
-          <div className="md:hidden">(r)</div>
+          {showFullTexts ? <>(research)</> : <>(r)</>}
         </div>
         <div className="col-span-4 col-start-1 row-start-4 mx-auto">
-          <div className="hidden md:block">(collaborative)</div>
-          <div className="md:hidden">(c)</div>
+          {showFullTexts ? <>(collaborative)</> : <>(c)</>}
         </div>
         <div className="col-start-2 mt-1 ml-3 border-r-2 border-b-2 border-black"></div>
         <div className="col-start-3 mr-3 border-b-2 border-black"></div>
@@ -69,7 +65,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 className={`w-fit whitespace-nowrap ${isBottom && "-translate-y-[var(--font-size)]"} ${isRight && "-translate-x-full"}`}
               >
                 <Link href={`/projects/${project.slug}`}>
-                  {showFullTitle ? (
+                  {showFullTexts ? (
                     <div className="dot-tooltip">
                       {index + 1}. {project.title}
                       <div className="dot"></div>
