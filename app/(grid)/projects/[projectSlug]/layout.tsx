@@ -28,7 +28,7 @@ export default async function Layout({
     <div className="pointer-events-none absolute top-0 left-0 grid h-full w-full place-items-center">
       <ThreeDBorder className="z-50 h-5/6 w-full md:h-2/3 md:w-3/5">
         <div className="flex h-full w-full flex-col px-[12px] pt-[18px] md:px-[18px]">
-          <nav className="mb-[39px] grid grid-cols-[1fr_2fr_1fr] text-center">
+          <nav className="mb-[20px] grid grid-cols-[1fr_2fr_1fr] text-center">
             <div className="text-left">
               <InfoGalleryButton
                 projectSlug={project.slug}
@@ -42,7 +42,7 @@ export default async function Layout({
               <Link href="/">close</Link>
             </div>
           </nav>
-          <div className="hide-scroll-bar mb-6 flex-grow overflow-y-scroll">
+          <div className="hide-scroll-bar mb-[24px] flex-grow overflow-y-scroll">
             {children}
           </div>
         </div>

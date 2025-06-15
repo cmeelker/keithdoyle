@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
-import { getProjects } from "../services/projectService";
+import { Project } from "../models/Project";
+import { useState, useEffect } from "react";
+import { useCssVar } from "../hooks/useCssVar";
+import { useWindowDimensions } from "../hooks/useWindowDimensions";
 
-export default async function ProjectGrid() {
-  const projects = await getProjects();
+export default function ProjectGrid({ projects }: { projects: Project[] }) {
   // TODO: Sort on year? Or something else?
 
   // Range for x and y coordinates are -100 to 100
@@ -13,6 +16,19 @@ export default async function ProjectGrid() {
   function isRightHalf(x: number, y: number) {
     return x > 0;
   }
+
+  const [showFullTitle, setShowFullTitle] = useState(false);
+
+  const fontSize = useCssVar("--font-size");
+  const { width: windowWidth } = useWindowDimensions();
+
+  useEffect(() => {
+    if (windowWidth < 1024 && fontSize > "36px") {
+      setShowFullTitle(false);
+    } else {
+      setShowFullTitle(true);
+    }
+  }, [fontSize, windowWidth]);
 
   return (
     <div className="relative h-full lg:-mt-[calc(var(--font-size)*1.5)] lg:h-[calc(100%+(var(--font-size)*1.5))]">
@@ -53,17 +69,16 @@ export default async function ProjectGrid() {
                 className={`w-fit whitespace-nowrap ${isBottom && "-translate-y-[var(--font-size)]"} ${isRight && "-translate-x-full"}`}
               >
                 <Link href={`/projects/${project.slug}`}>
-                  <span className="hidden md:block">
-                    <div className="tooltip">
+                  {showFullTitle ? (
+                    <div className="dot-tooltip">
                       {index + 1}. {project.title}
-                      <div className="tooltiptext">•</div>
+                      <div className="dot-tooltiptext">•</div>
                     </div>
-                  </span>
-                  <div className="md:hidden">
-                    <div className="tooltip">
-                      {index + 1}.<div className="tooltiptext">•</div>
+                  ) : (
+                    <div className="dot-tooltip">
+                      {index + 1}.<div className="dot-tooltiptext">•</div>
                     </div>
-                  </div>
+                  )}
                 </Link>
               </h2>
             );

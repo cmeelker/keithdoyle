@@ -48,6 +48,7 @@ body {
   font-family: "Garamond";
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 @theme {
@@ -63,12 +64,12 @@ body {
     display: none;  /* Older Safari and Chromium */
 }
 
-.tooltip {
+.dot-tooltip {
   position: relative;
   display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.dot-tooltip .dot-tooltiptext {
   visibility: hidden;
   font-size: calc(var(--font-size) * 4);
   text-align: center;
@@ -80,6 +81,6 @@ body {
 }
 
 
-.tooltip:hover .tooltiptext {
+.dot-tooltip:hover .dot-tooltiptext {
   visibility: visible;
 }
