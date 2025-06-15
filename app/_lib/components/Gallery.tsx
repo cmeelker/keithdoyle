@@ -18,7 +18,7 @@ export default function Gallery({ images }: { images: ContentfulImage[] }) {
     <div className="flex h-full flex-col items-center gap-6">
       <div className="relative m-auto h-full w-full md:w-[90%]">
         <Image
-          className="cursor-pointer object-cover"
+          className="cursor-pointer object-contain"
           src={images[currentImageIndex].url}
           alt={images[currentImageIndex].alt || ""}
           fill={true}

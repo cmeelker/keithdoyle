@@ -54,9 +54,16 @@ export default async function ProjectGrid() {
               >
                 <Link href={`/projects/${project.slug}`}>
                   <span className="hidden md:block">
-                    {index + 1}. {project.title}
+                    <div className="tooltip">
+                      {index + 1}. {project.title}
+                      <div className="tooltiptext">•</div>
+                    </div>
                   </span>
-                  <div className="md:hidden">{index + 1}.</div>
+                  <div className="md:hidden">
+                    <div className="tooltip">
+                      {index + 1}.<div className="tooltiptext">•</div>
+                    </div>
+                  </div>
                 </Link>
               </h2>
             );
