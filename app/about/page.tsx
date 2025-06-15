@@ -4,5 +4,9 @@ import { getAboutPage } from "../_lib/services/aboutService";
 export default async function About() {
   const { text } = await getAboutPage();
 
-  return <Richtext document={text} />;
+  return (
+    <div className="hide-scroll-bar overflow-scroll">
+      <Richtext document={text} />
+    </div>
+  );
 }

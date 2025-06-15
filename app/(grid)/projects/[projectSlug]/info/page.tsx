@@ -12,5 +12,9 @@ export default async function ProjectInfoPage({
   const { projectSlug } = await params;
   const project = await getProject(projectSlug);
 
-  return <Richtext document={project.description} />;
+  return (
+    <div className="hide-scroll-bar overflow-scroll">
+      <Richtext document={project.description} />
+    </div>
+  );
 }
