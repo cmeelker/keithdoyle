@@ -1,12 +1,9 @@
-import Richtext from "../_lib/components/Richtext";
+import About from "../_lib/components/About";
+
 import { getAboutPage } from "../_lib/services/aboutService";
 
-export default async function About() {
+export default async function AboutPage() {
   const { text } = await getAboutPage();
 
-  return (
-    <div className="hide-scroll-bar overflow-scroll">
-      <Richtext document={text} />
-    </div>
-  );
+  return <About text={text} />;
 }
