@@ -1,7 +1,6 @@
 import ThreeDBorder from "@/app/_lib/components/3DBorder";
-import InfoGalleryButton from "@/app/_lib/components/InfoGalleryButton";
+import ProjectPageNavBar from "@/app/_lib/components/ProjectPageNavBar";
 import { getProject } from "@/app/_lib/services/projectService";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export interface ProjectPageProps {
@@ -21,27 +20,11 @@ export default async function Layout({
     redirect("/");
   });
 
-  // TODO: Fix navigation for mobile with large font
-  // Get width of nav, if bigger than parent (=overflow) than use different layout
-
   return (
     <div className="pointer-events-none absolute top-0 left-0 grid h-full w-full place-items-center">
       <ThreeDBorder className="z-50 h-5/6 w-full md:h-2/3 md:w-3/5">
         <div className="flex h-full w-full flex-col px-[12px] pt-[18px] md:px-[18px]">
-          <nav className="mb-[20px] grid grid-cols-[1fr_2fr_1fr] text-center">
-            <div className="text-left">
-              <InfoGalleryButton
-                projectSlug={project.slug}
-                hasImages={project.media.images.length > 0}
-              />
-            </div>
-            <h2 className="sm:whitespace-nowrap">
-              {project.title}, {project.year}
-            </h2>
-            <div className="text-right">
-              <Link href="/">close</Link>
-            </div>
-          </nav>
+          <ProjectPageNavBar project={project} />
           <div className="hide-scroll-bar mb-[24px] flex-grow overflow-y-scroll">
             {children}
           </div>

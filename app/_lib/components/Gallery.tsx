@@ -1,10 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ContentfulImage } from "../models/Image";
 import Image from "next/image";
+import { useCssVar } from "../hooks/useCssVar";
 
 export default function Gallery({ images }: { images: ContentfulImage[] }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const [flexGap, setFlexGap] = useState(24);
+  const fontSize = Number(useCssVar("--font-size").split("px")[0]);
+
+  useEffect(() => {
+    setFlexGap(24 * (1 - (fontSize - 18) / 54));
+  }, [fontSize]);
 
   function goToNextImage(): void {
     if (currentImageIndex < images.length - 1) {
@@ -15,7 +23,10 @@ export default function Gallery({ images }: { images: ContentfulImage[] }) {
   }
 
   return (
-    <div className="flex h-full flex-col items-center gap-[24px]">
+    <div
+      className="flex h-full flex-col items-center gap-[24px]"
+      style={{ gap: flexGap }}
+    >
       <div className="relative m-auto h-full w-full md:w-[90%]">
         <Image
           className="cursor-pointer object-contain"
