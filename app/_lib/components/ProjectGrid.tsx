@@ -72,11 +72,11 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                   {showFullTitle ? (
                     <div className="dot-tooltip">
                       {index + 1}. {project.title}
-                      <div className="dot-tooltiptext">•</div>
+                      <div className="dot"></div>
                     </div>
                   ) : (
                     <div className="dot-tooltip">
-                      {index + 1}.<div className="dot-tooltiptext">•</div>
+                      {index + 1}.<div className="dot"></div>
                     </div>
                   )}
                 </Link>

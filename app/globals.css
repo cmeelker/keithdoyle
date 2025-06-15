@@ -48,7 +48,6 @@ body {
   font-family: "Garamond";
   font-size: var(--font-size);
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
 }
 
 @theme {
@@ -69,18 +68,20 @@ body {
   display: inline-block;
 }
 
-.dot-tooltip .dot-tooltiptext {
+.dot-tooltip .dot {
   visibility: hidden;
-  font-size: calc(var(--font-size) * 4);
+  background-color: black;
+  border-radius: 100%;
+  width: var(--font-size);
+  height: var(--font-size);
   text-align: center;
   position: absolute;
   z-index: 1; 
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -48%);
+  transform: translate(-50%, -75%);
 }
 
-
-.dot-tooltip:hover .dot-tooltiptext {
+.dot-tooltip:hover .dot {
   visibility: visible;
 }
