@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body className="bg-white-smoke break-word flex h-full w-full flex-col px-4.5 sm:break-normal md:px-10">
+      <body className="bg-white-smoke break-word hide-scroll-bar flex h-full w-full flex-col px-4.5 sm:break-normal md:px-10">
         <NavBar />
         {children}
         <Analytics />

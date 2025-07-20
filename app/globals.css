@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --font-size: 18px;
+  --font-size: 30px;
+  line-height: normal;
 }
 
 @font-face {

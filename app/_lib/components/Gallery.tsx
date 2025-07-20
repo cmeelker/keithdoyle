@@ -33,9 +33,9 @@ export default function Gallery({ images }: { images: ContentfulImage[] }) {
           onClick={() => goToNextImage()}
         />
       </div>
-      <div className="-mb-[calc(0.5*var(--font-size))]">
+      <p>
         {currentImageIndex + 1}/{images.length}
-      </div>
+      </p>
     </div>
   );
 }

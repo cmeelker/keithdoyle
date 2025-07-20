@@ -6,8 +6,6 @@ import { useCssVar } from "../hooks/useCssVar";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
 
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
-  // TODO: Sort on year? Or something else?
-
   // Range for x and y coordinates are -100 to 100
   function isBottomHalf(x: number, y: number) {
     return y > 0;
@@ -67,7 +65,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 <Link href={`/projects/${project.slug}`}>
                   {showFullTexts ? (
                     <div className="dot-tooltip">
-                      {index + 1}. {project.title}
+                      {project.title}
                       <div className="dot"></div>
                     </div>
                   ) : (
