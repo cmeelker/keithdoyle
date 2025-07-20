@@ -63,26 +63,3 @@ body {
 .hide-scroll-bar::-webkit-scrollbar { 
     display: none;  /* Older Safari and Chromium */
 }
-
-.dot-tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.dot-tooltip .dot {
-  visibility: hidden;
-  background-color: black;
-  border-radius: 100%;
-  width: var(--font-size);
-  height: var(--font-size);
-  text-align: center;
-  position: absolute;
-  z-index: 1; 
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -75%);
-}
-
-.dot-tooltip:hover .dot {
-  visibility: visible;
-}

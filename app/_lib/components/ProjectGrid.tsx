@@ -4,6 +4,7 @@ import { Project } from "../models/Project";
 import { useState, useEffect } from "react";
 import { useCssVar } from "../hooks/useCssVar";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
+import { DotTooltip } from "./DotTooltip";
 
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
   // Range for x and y coordinates are -100 to 100
@@ -62,18 +63,15 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 }}
                 className={`w-fit whitespace-nowrap ${isBottom && "-translate-y-[var(--font-size)]"} ${isRight && "-translate-x-full"}`}
               >
-                <Link href={`/projects/${project.slug}`}>
-                  {showFullTexts ? (
-                    <div className="dot-tooltip">
-                      {project.title}
-                      <div className="dot"></div>
-                    </div>
-                  ) : (
-                    <div className="dot-tooltip">
-                      {index + 1}.<div className="dot"></div>
-                    </div>
-                  )}
-                </Link>
+                <DotTooltip>
+                  <Link href={`/projects/${project.slug}`}>
+                    {showFullTexts ? (
+                      <div>{project.title}</div>
+                    ) : (
+                      <div>{index + 1}.</div>
+                    )}
+                  </Link>
+                </DotTooltip>
               </h2>
             );
           })}
