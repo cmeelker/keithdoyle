@@ -2,11 +2,11 @@
 import { Document } from "@contentful/rich-text-types";
 import Richtext from "./Richtext";
 import Footer from "./Footer";
-import { useCssVar } from "../hooks/useCssVar";
 import { useRef } from "react";
+import { useFontSize } from "../hooks/useFontSize";
 
 export default function About({ text }: { text: Document }) {
-  const fontSize = Number(useCssVar("--font-size").split("px")[0]);
+  const { fontSize } = useFontSize();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   function scrollToTop() {

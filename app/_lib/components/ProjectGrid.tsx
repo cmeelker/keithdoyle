@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { Project } from "../models/Project";
 import { useState, useEffect } from "react";
-import { useCssVar } from "../hooks/useCssVar";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
 import { DotTooltip } from "./DotTooltip";
+import { useFontSize } from "../hooks/useFontSize";
 
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
   // Range for x and y coordinates are -100 to 100
@@ -18,19 +18,30 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
 
   const [showFullTexts, setShowFullTexts] = useState(false);
 
-  const fontSize = useCssVar("--font-size");
+  const { fontSize, increase, decrease } = useFontSize();
   const { width: windowWidth } = useWindowDimensions();
 
   useEffect(() => {
-    if (windowWidth < 1024 && fontSize > "30px") {
+    if (windowWidth < 1024 && fontSize > 30) {
       setShowFullTexts(false);
     } else {
       setShowFullTexts(true);
     }
   }, [fontSize, windowWidth]);
 
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (e.deltaY < 0) {
+      increase();
+    } else {
+      decrease();
+    }
+  };
+
   return (
-    <div className="relative h-full lg:-mt-[calc(var(--font-size)*1.5)] lg:h-[calc(100%+(var(--font-size)*1.5))]">
+    <div
+      onWheel={handleWheel}
+      className="relative h-full lg:-mt-[calc(var(--font-size)*1.5)] lg:h-[calc(100%+(var(--font-size)*1.5))]"
+    >
       <div className="grid h-full grid-cols-[max-content_1fr_1fr_max-content] grid-rows-[max-content_1fr_1fr_max-content]">
         <div className="col-span-4 col-start-1 mx-auto">
           {showFullTexts ? <>(self)</> : <>(s)</>}

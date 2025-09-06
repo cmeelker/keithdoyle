@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Project } from "../models/Project";
 import { useEffect, useRef, useState } from "react";
-import { useCssVar } from "../hooks/useCssVar";
+import { useFontSize } from "../hooks/useFontSize";
 
 export default function ProjectPageNavBar({ project }: { project: Project }) {
   const pathname = usePathname();
@@ -12,7 +12,7 @@ export default function ProjectPageNavBar({ project }: { project: Project }) {
   const [useTwoRowLayout, setUseTwoRowLayout] = useState(false);
   const [navWidth, setNavWidth] = useState(0);
   const navRef = useRef<HTMLElement>(null);
-  const fontSize = Number(useCssVar("--font-size").split("px")[0]);
+  const { fontSize } = useFontSize();
 
   const hasImages = project.media.images.length > 0;
 

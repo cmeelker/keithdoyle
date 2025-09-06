@@ -2,13 +2,13 @@
 import { useEffect, useState } from "react";
 import { ContentfulImage } from "../models/Image";
 import Image from "next/image";
-import { useCssVar } from "../hooks/useCssVar";
+import { useFontSize } from "../hooks/useFontSize";
 
 export default function Gallery({ images }: { images: ContentfulImage[] }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const [flexGap, setFlexGap] = useState(24);
-  const fontSize = Number(useCssVar("--font-size").split("px")[0]);
+  const { fontSize } = useFontSize();
 
   useEffect(() => {
     setFlexGap(24 * (1 - (fontSize - 18) / 54));
