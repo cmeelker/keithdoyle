@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "./_lib/components/NavBar";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Keith Doyle",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
