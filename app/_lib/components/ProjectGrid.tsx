@@ -5,8 +5,15 @@ import { useState, useEffect } from "react";
 import { useWindowDimensions } from "../hooks/useWindowDimensions";
 import { DotTooltip } from "./DotTooltip";
 import { useFontSize } from "../hooks/useFontSize";
+import { GridLabels } from "../models/GridLabels";
 
-export default function ProjectGrid({ projects }: { projects: Project[] }) {
+export default function ProjectGrid({
+  gridLabels,
+  projects,
+}: {
+  gridLabels: GridLabels;
+  projects: Project[];
+}) {
   // Range for x and y coordinates are -100 to 100
   function isBottomHalf(x: number, y: number) {
     return y > 0;
@@ -42,18 +49,34 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
       onWheel={handleWheel}
       className="relative h-full lg:-mt-[calc(var(--font-size)*1.5)] lg:h-[calc(100%+(var(--font-size)*1.5))]"
     >
-      <div className="grid h-full grid-cols-[max-content_1fr_1fr_max-content] grid-rows-[max-content_1fr_1fr_max-content]">
+      <div className="grid h-full grid-cols-[max-content_1fr_1fr_max-content] grid-rows-[max-content_1fr_1fr_max-content] lowercase">
         <div className="col-span-4 col-start-1 mx-auto">
-          {showFullTexts ? <>(self)</> : <>(s)</>}
+          {showFullTexts ? (
+            <>({gridLabels.top})</>
+          ) : (
+            <>({gridLabels.top.charAt(0)})</>
+          )}
         </div>
         <div className="col-start-1 row-span-2 row-start-2 my-auto text-left">
-          {showFullTexts ? <>(practice)</> : <>(h)</>}
+          {showFullTexts ? (
+            <>({gridLabels.left})</>
+          ) : (
+            <>({gridLabels.left.charAt(0)})</>
+          )}
         </div>
         <div className="col-start-4 row-span-2 row-start-2 my-auto text-right">
-          {showFullTexts ? <>(research)</> : <>(r)</>}
+          {showFullTexts ? (
+            <>({gridLabels.right})</>
+          ) : (
+            <>({gridLabels.right.charAt(0)})</>
+          )}
         </div>
         <div className="col-span-4 col-start-1 row-start-4 mx-auto">
-          {showFullTexts ? <>(collaborative)</> : <>(c)</>}
+          {showFullTexts ? (
+            <>({gridLabels.bottom})</>
+          ) : (
+            <>({gridLabels.bottom.charAt(0)})</>
+          )}
         </div>
         <div className="col-start-2 mt-1 ml-3 border-r-2 border-b-2 border-black"></div>
         <div className="col-start-3 mr-3 border-b-2 border-black"></div>
