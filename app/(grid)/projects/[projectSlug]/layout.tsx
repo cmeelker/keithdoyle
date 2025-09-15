@@ -3,6 +3,8 @@ import ProjectPageNavBar from "@/app/_lib/components/ProjectPageNavBar";
 import { getProject } from "@/app/_lib/services/projectService";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export interface ProjectPageProps {
   projectSlug: string;
 }

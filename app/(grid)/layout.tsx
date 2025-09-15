@@ -2,6 +2,8 @@ import Footer from "../_lib/components/Footer";
 import ProjectGrid from "../_lib/components/ProjectGrid";
 import { getProjects } from "../_lib/services/projectService";
 
+export const dynamic = "force-dynamic";
+
 export default async function Layout({
   children,
 }: Readonly<{
