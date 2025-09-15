@@ -47,7 +47,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
           {showFullTexts ? <>(self)</> : <>(s)</>}
         </div>
         <div className="col-start-1 row-span-2 row-start-2 my-auto text-left">
-          {showFullTexts ? <>(hobbies)</> : <>(h)</>}
+          {showFullTexts ? <>(practice)</> : <>(h)</>}
         </div>
         <div className="col-start-4 row-span-2 row-start-2 my-auto text-right">
           {showFullTexts ? <>(research)</> : <>(r)</>}
