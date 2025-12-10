@@ -1,5 +1,6 @@
 import { Document } from "@contentful/rich-text-types";
 import { ContentfulImage, mapImage } from "./Image";
+import { ContentfulVimeo, mapVimeo } from "./Vimeo";
 
 export interface Project {
   id: number;
@@ -14,6 +15,7 @@ export interface Project {
 
 export interface ProjectMedia {
   images: ContentfulImage[];
+  videos: ContentfulVimeo[];
 }
 
 export function mapProject(project: any): Project {
@@ -25,6 +27,7 @@ export function mapProject(project: any): Project {
     description: project.fields.description,
     media: {
       images: project.fields.images?.map((image: any) => mapImage(image)) || [],
+      videos: project.fields.video?.map((video: any) => mapVimeo(video)) || [],
     },
     x: project.fields.x,
     y: project.fields.y,

@@ -18,5 +18,7 @@ export default async function ProjectPage({
     redirect(`/projects/${project.slug}/info`);
   }
 
-  return <Gallery images={project.media.images} />;
+  return (
+    <Gallery images={project.media.images} videos={project.media.videos} />
+  );
 }
