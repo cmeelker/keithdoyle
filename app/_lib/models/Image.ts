@@ -8,7 +8,11 @@ export interface ContentfulImage {
   isPortrait: boolean;
 }
 
-export function mapImage(image: any): ContentfulImage {
+export function mapImage(image: any): ContentfulImage | undefined {
+  if (image.fields.file.contentType !== "image/jpeg") {
+    return undefined;
+  }
+
   const width = image.fields?.file.details.image.width;
   const height = image.fields?.file.details.image.height;
 

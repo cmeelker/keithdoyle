@@ -26,8 +26,14 @@ export function mapProject(project: any): Project {
     year: project.fields.year,
     description: project.fields.description,
     media: {
-      images: project.fields.images?.map((image: any) => mapImage(image)) || [],
-      videos: project.fields.video?.map((video: any) => mapVimeo(video)) || [],
+      images:
+        project.fields.images
+          ?.map((image: any) => mapImage(image))
+          .filter(Boolean) || [],
+      videos:
+        project.fields.video
+          ?.map((video: any) => mapVimeo(video))
+          .filter(Boolean) || [],
     },
     x: project.fields.x,
     y: project.fields.y,
